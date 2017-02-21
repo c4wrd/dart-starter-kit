@@ -1,4 +1,4 @@
-name: dataminr_helper
+name: myclient
 description: A Dart app that uses Angular 2
 version: 0.0.1
 dependencies:
@@ -6,14 +6,9 @@ dependencies:
   polymer: "^1.0.0-rc.15"
   polymer_elements: "^1.0.0-rc.8"
   web_components: "^0.12.0"
-  redstone: any
-  redstone_mapper: any
 dev_dependencies:
   browser: '^0.10.0'
   dart_to_js_script_rewriter: '^1.0.1'
-dependency_overrides:
-  analyzer: "0.29.7"
-  code_transformers: "0.5.1"
 transformers:
 - polymer:
     entry_points: web/index.html

@@ -11,7 +11,7 @@ import 'package:angular2/angular2.dart';
 import 'package:angular2/platform/browser.dart';
 
 // import the components for the application
-import 'package:dataminr_helper/app_component.dart';
+import 'package:myclient/app_component.dart';
 
 main() async {
   await initPolymer();

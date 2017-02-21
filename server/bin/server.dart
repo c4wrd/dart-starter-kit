@@ -1,13 +1,25 @@
 import 'dart:core';
 import 'dart:async';
+import 'dart:io';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
+import 'package:shelf_static/shelf_static.dart';
 
 void main() {
   app.setupConsoleLog();
   app.addPlugin(getMapperPlugin());
+
+  if ( Platform.environment.containsKey("ENVIRONMENT") && Platform.environment["ENVIRONMENT"] == "PROD" )
+  {
+    app.setShelfHandler(createStaticHandler(
+      "../../wwwroot/web",
+      defaultDocument: "index.html",
+      serveFilesOutsidePath: false
+    ));
+  }
+
   app.start();
 }
 
@@ -44,7 +56,7 @@ class Tasks {
     task.completed = false;
     this._tasks.add(task);
 
-    return {"success": true, "task": task}
+    return {"success": true, "task": task};
   }
 
 
