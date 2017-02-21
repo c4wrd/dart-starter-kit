@@ -4,3 +4,4 @@ dependencies:
   redstone: "^0.6.4"
   redstone_mapper: any
   shelf_static: any
+  path: any

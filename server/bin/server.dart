@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:async';
 import 'dart:io';
+import 'package:path/path.dart' as Path;
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
@@ -13,8 +14,12 @@ void main() {
 
   if ( Platform.environment.containsKey("ENVIRONMENT") && Platform.environment["ENVIRONMENT"] == "PROD" )
   {
+    String scriptPath = Path.dirname(Path.fromUri(Platform.script));
+    String webRootPath = Path.normalize("$scriptPath/../../wwwroot/web");
+    print("Serving $webRootPath");
+
     app.setShelfHandler(createStaticHandler(
-      "../../wwwroot/web",
+      webRootPath,
       defaultDocument: "index.html",
       serveFilesOutsidePath: false
     ));
