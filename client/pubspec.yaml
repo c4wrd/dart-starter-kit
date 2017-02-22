@@ -3,24 +3,24 @@ description: A Dart app that uses Angular 2
 version: 0.0.1
 dependencies:
   angular2: ">=2.2.0 <2.3.0"
-  ng_bootstrap: "0.5.1"
-dev_dependencies:
   browser: "^0.10.0"
-  dart_to_js_script_rewriter: "^1.0.1"
+  dart_sass_transformer: any
+  dart_to_js_script_rewriter: "1.0.2"
+  ng_bootstrap: "0.5.1"
 transformers:
-- angular2:
-    platform_directives:
-      - 'package:angular2/common.dart#COMMON_DIRECTIVES'
-      - 'package:angular2/router.dart#ROUTER_DIRECTIVES'
-      - 'package:angular2/common.dart#CORE_DIRECTIVES'
-      - 'package:angular2/common.dart#FORM_DIRECTIVES'
-    platform_pipes:
-      - 'package:angular2/common.dart#COMMON_PIPES'
-    entry_points: web/main.dart
-- dart_to_js_script_rewriter
-- $dart2js:
-    $include: '**/*.bootstrap.initialize.dart'
-    minify: true
-    commandLineOptions:
-    - --trust-type-annotations
-    - --trust-primitives
+  - angular2:
+      platform_directives:
+        - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+        - 'package:angular2/router.dart#ROUTER_DIRECTIVES'
+        - 'package:angular2/common.dart#CORE_DIRECTIVES'
+        - 'package:angular2/common.dart#FORM_DIRECTIVES'
+      platform_pipes:
+        - 'package:angular2/common.dart#COMMON_PIPES'
+      entry_points: web/main.dart
+  - $dart2js:
+      minify: true
+      commandLineOptions:
+      - --trust-type-annotations
+      - --trust-primitives
+  - dart_sass_transformer
+  - dart_to_js_script_rewriter
