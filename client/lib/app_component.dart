@@ -3,9 +3,12 @@
 
 import 'package:angular2/core.dart';
 
+import 'package:ng_bootstrap/ng_bootstrap.dart';
+
 @Component(
   selector: 'main-app',
-  templateUrl: 'app_component.html'
+  templateUrl: 'app_component.html',
+  directives: const [BS_DIRECTIVES]
 )
 class AppComponent {
 

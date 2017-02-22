@@ -2,3 +2,5 @@ wwwroot
 .pub
 pubspec.lock
 .packages
+.idea
+build
